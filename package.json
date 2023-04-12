@@ -1,0 +1,29 @@
+{
+  "name": "reimagined-umbrella",
+  "version": "1.0.0",
+  "description": "A NodeJS CLI to integrate with Github Rest API.",
+  "main": "bin/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "umbrella": "./bin/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rdiego26/reimagined-umbrella.git"
+  },
+  "keywords": [
+    "cli",
+    "postgres",
+    "nodejs",
+    "github",
+    "rest"
+  ],
+  "author": "Diego Ramos <rdiego26@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rdiego26/reimagined-umbrella/issues"
+  },
+  "homepage": "https://github.com/rdiego26/reimagined-umbrella#readme"
+}
