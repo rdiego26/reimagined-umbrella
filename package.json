@@ -4,7 +4,8 @@
   "description": "A NodeJS CLI to integrate with Github Rest API.",
   "main": "bin/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:fix": "eslint --fix ./bin/*.js"
   },
   "bin": {
     "umbrella": "./bin/index.js"
@@ -25,5 +26,15 @@
   "bugs": {
     "url": "https://github.com/rdiego26/reimagined-umbrella/issues"
   },
-  "homepage": "https://github.com/rdiego26/reimagined-umbrella#readme"
+  "homepage": "https://github.com/rdiego26/reimagined-umbrella#readme",
+  "dependencies": {
+    "commander": "^10.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.38.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.7.0",
+    "eslint-plugin-promise": "^6.1.1"
+  }
 }
