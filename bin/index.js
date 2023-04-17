@@ -2,6 +2,7 @@
 const appData = require('../package.json')
 const { program } = require('commander')
 const getUser = require('./commands/getUser')
+const listUser = require('./commands/listUser');
 
 program
   .name(appData.name)
@@ -16,6 +17,14 @@ program
   .description('Fetch information about github user')
   .action(async (param) => {
     await getUser(param)
+  })
+
+program
+  .command('list')
+  .description('Option to display all data saved in database')
+  .action(async () => {
+    const users = await listUser();
+    console.log(`You have ${users.length} in database=${users}`);
   })
 
 program.parse()

@@ -15,6 +15,6 @@ module.exports = {
         'UPDATE SET data = $2:json, updated_at = NOW()', [name, data])
   },
   fetchUsers: async () => {
-    await db.any('SELECT * FROM users')
+    return await db.any('SELECT * FROM users')
   }
 }
