@@ -5,7 +5,12 @@
   "main": "bin/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint:fix": "eslint --fix ./bin/**/*.js"
+    "lint:fix": "eslint --fix ./bin/**/*.js",
+    "migrate": "export DATABASE_URL=postgres://postgres:postgres@localhost:35432/db && node-pg-migrate",
+    "migrate:up": "npm run migrate -- up",
+    "migrate:down": "npm run migrate -- down",
+    "migrate:redo": "npm run migrate -- redo",
+    "migrate:create": "npm run migrate -- create"
   },
   "bin": {
     "umbrella": "./bin/index.js"
@@ -28,7 +33,9 @@
   },
   "homepage": "https://github.com/rdiego26/reimagined-umbrella#readme",
   "dependencies": {
-    "commander": "^10.0.0"
+    "commander": "^10.0.0",
+    "node-pg-migrate": "^6.2.2",
+    "pg": "^8.10.0"
   },
   "devDependencies": {
     "eslint": "^8.38.0",
