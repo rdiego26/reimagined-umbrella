@@ -1,4 +1,7 @@
-const { fetchUsers, fetchUsersByLocation } = require('../services/database')
+const {
+  fetchUsers, fetchUsersByLocation,
+  fetchUsersByLanguage
+} = require('../services/database')
 
 const decorate = (data) => {
   return data.username
@@ -14,4 +17,9 @@ const listUserByLocation = async (location) => {
   return allData.map(decorate)
 }
 
-module.exports = { listUser, listUserByLocation }
+const listUserByLanguage = async (language) => {
+  const allData = await fetchUsersByLanguage(language)
+  return allData.map(decorate)
+}
+
+module.exports = { listUser, listUserByLocation, listUserByLanguage }

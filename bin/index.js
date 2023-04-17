@@ -2,7 +2,7 @@
 const appData = require('../package.json')
 const { program } = require('commander')
 const getUser = require('./commands/getUser')
-const { listUser, listUserByLocation } = require('./commands/listUser');
+const { listUser, listUserByLocation, listUserByLanguage } = require('./commands/listUser');
 
 program
   .name(appData.name)
@@ -45,6 +45,20 @@ program
             console.info(`You have ${users.length} user(s) in database who living in ${param} ${users}`)
         } catch (error) {
             console.error(`Error list users by location`, error)
+        }
+    })
+
+program
+    .command('listByLanguage')
+    .description('Option to display all users saved in database filtered by language')
+    .argument('<language>', 'location to filter users')
+    .option('--listByLanguage', 'language')
+    .action(async (param) => {
+        try {
+            const users = await listUserByLanguage(param)
+            console.info(`You have ${users.length} user(s) in database who know ${param} ${users}`)
+        } catch (error) {
+            console.error(`Error list users by language`, error)
         }
     })
 

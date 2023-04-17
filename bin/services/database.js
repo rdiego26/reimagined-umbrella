@@ -20,5 +20,9 @@ module.exports = {
   },
   fetchUsersByLocation: async (location) => {
     return await db.any('SELECT * FROM users WHERE location = $1', [location])
+  },
+  fetchUsersByLanguage: async (language) => {
+    return await db.any('SELECT * FROM users WHERE ' +
+        'data->\'languages\' ? $1', [language])
   }
 }
