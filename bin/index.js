@@ -16,15 +16,23 @@ program
   .option('--user', 'user name')
   .description('Fetch information about github user')
   .action(async (param) => {
-    await getUser(param)
+    try {
+        await getUser(param)
+    } catch (error) {
+     console.error(`Error during get user`, error);
+    }
   })
 
 program
   .command('list')
   .description('Option to display all data saved in database')
   .action(async () => {
-    const users = await listUser();
-    console.log(`You have ${users.length} in database=${users}`);
+    try {
+        const users = await listUser();
+        console.info(`You have ${users.length} in database=${users}`);
+    } catch (error) {
+        console.error(`Error list users`, error);
+    }
   })
 
 program.parse()
