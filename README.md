@@ -14,3 +14,6 @@ A NodeJS CLI to integrate with Github Rest API.
 
 ## Install
 Run `npm install -g .`, after that the command `umbrella` will be available.
+
+## Commands
+- `umbrella user rdiego26` Fetch and store user info
