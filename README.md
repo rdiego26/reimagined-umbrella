@@ -17,3 +17,6 @@ Run `npm install -g .`, after that the command `umbrella` will be available.
 
 ## Commands
 - `umbrella user rdiego26` Fetch and store user info
+- `umbrella list` List all stored users (only username)
+- `umbrella listByLocation Portugal` List stored users by programming language
+- `umbrella listByLanguage JavaScript` List stored users by programming language
