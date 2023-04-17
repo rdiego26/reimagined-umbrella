@@ -20,3 +20,8 @@ Run `npm install -g .`, after that the command `umbrella` will be available.
 - `umbrella list` List all stored users (only username)
 - `umbrella listByLocation Portugal` List stored users by programming language
 - `umbrella listByLanguage JavaScript` List stored users by programming language
+
+### Next steps / Improvements
+- Put all solution to run via docker
+- Implement unit tests
+- Add [chalk](https://www.npmjs.com/package/chalk) and [boxen](https://www.npmjs.com/package/boxen) to make the experience more user-friendly
