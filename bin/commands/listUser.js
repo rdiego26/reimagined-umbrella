@@ -1,6 +1,6 @@
 const {
   fetchUsers, fetchUsersByLocation,
-  fetchUsersByLanguage
+  fetchUsersByLanguage, fetchUsersByLocationAndLanguage
 } = require('../services/database')
 
 const decorate = (data) => {
@@ -9,6 +9,11 @@ const decorate = (data) => {
 
 const listUser = async () => {
   const allData = await fetchUsers()
+  return allData.map(decorate)
+}
+
+const listUserByLocationAndLanguage = async(location, language) => {
+  const allData = await fetchUsersByLocationAndLanguage(location, language)
   return allData.map(decorate)
 }
 
@@ -22,4 +27,5 @@ const listUserByLanguage = async (language) => {
   return allData.map(decorate)
 }
 
-module.exports = { listUser, listUserByLocation, listUserByLanguage }
+module.exports = { listUser, listUserByLocation,
+  listUserByLanguage, listUserByLocationAndLanguage }

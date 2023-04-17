@@ -2,7 +2,8 @@
 const appData = require('../package.json')
 const { program } = require('commander')
 const getUser = require('./commands/getUser')
-const { listUser, listUserByLocation, listUserByLanguage } = require('./commands/listUser');
+const { listUser, listUserByLocation,
+    listUserByLanguage, listUserByLocationAndLanguage } = require('./commands/listUser');
 
 program
   .name(appData.name)
@@ -35,10 +36,32 @@ program
   })
 
 program
+    .command('listBy')
+    .description('Option to display all users saved in database ' +
+        'filtered by location and/or language')
+    .option('--location [location]', 'location to filter users')
+    .option('--language [language]', 'language to filter users')
+    .action(async (params) => {
+        try {
+            let users = []
+            if (params?.location && params?.language) {
+                users = await listUserByLocationAndLanguage(params?.location, params?.language)
+            } else if (params?.location && !params?.language) {
+                users = await listUserByLocation(params?.location)
+            } else if (!params?.location && params?.language) {
+                users = await listUserByLanguage(params?.location)
+            }
+
+            console.info(`You have ${users.length} user(s) in database with provided params ${users}`)
+        } catch (error) {
+            console.error(`Error list users by location and/or language`, error)
+        }
+    })
+
+program
     .command('listByLocation')
     .description('Option to display all users saved in database filtered by location')
     .argument('<location>', 'location to filter users')
-    .option('--listByLocation', 'location')
     .action(async (param) => {
         try {
             const users = await listUserByLocation(param)
@@ -52,7 +75,6 @@ program
     .command('listByLanguage')
     .description('Option to display all users saved in database filtered by language')
     .argument('<language>', 'location to filter users')
-    .option('--listByLanguage', 'language')
     .action(async (param) => {
         try {
             const users = await listUserByLanguage(param)
