@@ -6,8 +6,9 @@ A NodeJS CLI to integrate with Github Rest API.
 ## Up the database container
 `docker-compose up`
 
-## Resolve dependencies
-`npm install`
+## Resolve dependencies and make build
+`npm install`  
+`npm run build`
 
 ## Run the migrations
 `npm run migrate:up`
