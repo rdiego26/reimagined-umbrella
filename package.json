@@ -1,0 +1,53 @@
+{
+  "name": "reimagined-umbrella",
+  "version": "1.0.0",
+  "description": "A NodeJS CLI to integrate with Github Rest API.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:fix": "eslint --fix ./bin/**/*.ts",
+    "migrate": "export DATABASE_URL=postgres://postgres:postgres@localhost:35432/db && node-pg-migrate",
+    "migrate:up": "npm run migrate -- up",
+    "migrate:down": "npm run migrate -- down",
+    "migrate:redo": "npm run migrate -- redo",
+    "migrate:create": "npm run migrate -- create"
+  },
+  "bin": {
+    "umbrella": "./dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rdiego26/reimagined-umbrella.git"
+  },
+  "keywords": [
+    "cli",
+    "postgres",
+    "nodejs",
+    "github",
+    "rest"
+  ],
+  "author": "Diego Ramos <rdiego26@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rdiego26/reimagined-umbrella/issues"
+  },
+  "homepage": "https://github.com/rdiego26/reimagined-umbrella#readme",
+  "dependencies": {
+    "commander": "^10.0.0",
+    "node-pg-migrate": "^6.2.2",
+    "pg": "^8.10.0",
+    "pg-promise": "^11.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^18.16.0",
+    "eslint": "^8.38.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-config-standard-with-typescript": "^34.0.1",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.7.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  }
+}
